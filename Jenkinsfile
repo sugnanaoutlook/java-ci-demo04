@@ -57,6 +57,13 @@ pipeline {
             }
         }
         
+        stage('Run Main Class') {
+            steps {
+                echo 'Running the main class...'
+                bat 'mvn spring-boot:run -Dspring-boot.run.arguments="--server.port=8081" -Dspring.profiles.active=test'
+            }
+        }
+        
         // stage('Code Quality Analysis') {
         //     steps {
         //         echo 'Running code quality analysis...'
